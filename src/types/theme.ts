@@ -1,19 +1,22 @@
-import { red } from '@material-ui/core/colors';
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@mui/material/styles';
 
-export default createMuiTheme({
+let theme = createTheme({
   palette: {
     primary: {
-      main: '#19857b',
+      main: '#aaa',
     },
     secondary: {
-      main: '#19857b',
-    },
-    error: {
-      main: red.A400,
-    },
-    background: {
-      default: '#000',
+      main: '#edf2ff',
     },
   },
 });
+
+theme = createTheme(theme, {
+  palette: {
+    info: {
+      main: theme.palette.secondary.main,
+    },
+  },
+});
+
+export default createTheme(theme);

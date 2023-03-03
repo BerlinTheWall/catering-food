@@ -13,6 +13,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { ThemeProvider } from '@emotion/react';
+import theme from 'types/theme';
 
 const pages = ['ورود', 'ورود مدیران'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -39,9 +41,10 @@ const Navbar: React.FC = () => {
   const handleCloseUserMenu = (): void => {
     setAnchorElUser(null);
   };
-
+  //  style={{ background: '#FFF', color: '#000' }}
   return (
-    <AppBar position="static" style={{ background: '#FFF', color: '#000' }}>
+    // <ThemeProvider theme={theme}>
+    <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -137,6 +140,7 @@ const Navbar: React.FC = () => {
         </Toolbar>
       </Container>
     </AppBar>
+    //</ThemeProvider>
   );
 };
 export default Navbar;
