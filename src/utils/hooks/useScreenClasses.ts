@@ -1,5 +1,5 @@
 import { useMediaQuery } from 'react-responsive';
-import { ScreenClasses } from '../../types/ScreenClasses';
+import { ScreenClasses } from 'types/ScreenClasses';
 
 const useScreenClasses = (classes: ScreenClasses): string => {
   const isXs = useMediaQuery({ query: '(max-width: 680px)' });

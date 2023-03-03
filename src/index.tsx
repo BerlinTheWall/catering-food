@@ -1,9 +1,9 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { Provider } from 'react-redux';
-import { store } from './app/store';
+// import { Provider } from 'react-redux';
+// import { store } from './app/store';
 // import App from './App';
-import reportWebVitals from './reportWebVitals';
+// import reportWebVitals from './reportWebVitals';
 import './index.css';
 
 // import { ThemeProvider } from '@material-ui/core/styles'
@@ -13,13 +13,13 @@ import './index.css';
 // root.render(
 //   <React.StrictMode>
 //     <ThemeProvider theme={theme}>
-//     <App />    
+//     <App />
 //   </ThemeProvider>,
 //   </React.StrictMode>
 // );
 // // ReactDOM.render(
 // //   <ThemeProvider theme={theme}>
-// //     <App />    
+// //     <App />
 // //   </ThemeProvider>,
 // //   document.getElementById('root')
 // // );
@@ -40,7 +40,7 @@ import './index.css';
 // // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 // reportWebVitals();
 // import React from 'react';
-import { render } from 'react-dom';
+// import { render } from 'react-dom';
 import { MuiThemeProvider, createTheme } from '@material-ui/core/styles';
 import App from './App';
 // import App from './App';
@@ -52,9 +52,9 @@ import App from './App';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#000'
-    }
-  }
+      main: '#000',
+    },
+  },
 });
 
 const container = document.getElementById('root')!;
@@ -64,12 +64,12 @@ root.render(
   <React.StrictMode>
     <MuiThemeProvider theme={theme}>
       <App />
-     </MuiThemeProvider>
-   
+    </MuiThemeProvider>
+
     {/* <Provider store={store}>
       <App />
     </Provider> */}
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 // function App() {
 //   return (
@@ -78,5 +78,5 @@ root.render(
 //     </MuiThemeProvider>
 //   );
 // }
-    
+
 // render(<App />, document.querySelector('#app'));

@@ -5,14 +5,26 @@ import Button from './Button';
 
 const Welcome: React.FC = () => {
   return (
-    <div className='w-full xs:flex-col sm:flex-row flex bg-black'>
-        <div className='xs:w-full lg:w-1/2 xs:mt-4 sm:m-4 flex justify-center'><img src={img} alt="welcome image" className='rounded-2xl lg:w-full xs:w-10/12' /></div>
-        <div className='xs:w-full lg:w-1/2 xs:py-6 flex flex-col items-center justify-center gap-4'>
-            <h3 className='text-white text-2xl'>به کترینگ فود خوش آمدید!</h3>
-            <Button className='mt-4' type={'primary'} onClick={function (): void {
-          throw new Error('Function not implemented.');
-        } }>ورود</Button>
-        </div>
+    <div className="w-full h-full xs:flex-col sm:flex-row flex bg-black">
+      <div className="xs:w-full lg:w-1/2 xs:mt-4 sm:m-4 flex justify-center">
+        <img
+          src={img}
+          alt="welcome"
+          className="rounded-2xl lg:w-full xs:w-10/12"
+        />
+      </div>
+      <div className="xs:w-full lg:w-1/2 xs:py-6 flex flex-col items-center justify-center gap-4">
+        <h3 className="text-white text-2xl">به کترینگ فود خوش آمدید!</h3>
+        <Button
+          className="mt-4"
+          type={'primary'}
+          onClick={function (): void {
+            throw new Error('Function not implemented.');
+          }}
+        >
+          ورود
+        </Button>
+      </div>
     </div>
   );
 };

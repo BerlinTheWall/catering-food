@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -13,33 +14,36 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = ['ورود' , 'ورود مدیران'];
+const pages = ['ورود', 'ورود مدیران'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+const Navbar: React.FC = () => {
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null,
+  );
+  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
+    null,
+  );
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>): void => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>): void => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (): void => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
+  const handleCloseUserMenu = (): void => {
     setAnchorElUser(null);
   };
 
   return (
-    <AppBar position="static"  style={{ background: '#FFF', color: '#000'}}>
-      <Container maxWidth="xl" >
+    <AppBar position="static" style={{ background: '#FFF', color: '#000' }}>
+      <Container maxWidth="xl">
         <Toolbar disableGutters>
-			
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
@@ -51,14 +55,19 @@ function ResponsiveAppBar() {
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
             کترینگ فود
           </Typography>
-		    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent:"end" }} >
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'none', md: 'flex' },
+              justifyContent: 'end',
+            }}
+          >
             {pages.map((page) => (
               <Button
                 key={page}
@@ -69,8 +78,8 @@ function ResponsiveAppBar() {
               </Button>
             ))}
           </Box>
-		  
-		  <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+
+          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -89,7 +98,7 @@ function ResponsiveAppBar() {
           >
             کترینگ فود
           </Typography>
-          <Box sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none'} }}>
+          <Box sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -125,11 +134,9 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-          
-          
         </Toolbar>
       </Container>
     </AppBar>
   );
-}
-export default ResponsiveAppBar;
+};
+export default Navbar;

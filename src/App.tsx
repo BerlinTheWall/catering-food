@@ -1,13 +1,13 @@
-// import React from 'react';
+import React from 'react';
 // import logo from './logo.svg';
 // import { Counter } from './features/counter/Counter';
 import './App.css';
-import { Footer, Navbar, Welcome } from './components';
+import { Footer, Navbar, Welcome } from 'components';
 
-function App() {
+const App: React.FC = () => {
+  // function App() {
   return (
     <div className="App">
-    
       <Navbar />
       <Welcome />
       <Footer />
@@ -59,6 +59,6 @@ function App() {
       </header> */}
     </div>
   );
-}
+};
 
 export default App;
