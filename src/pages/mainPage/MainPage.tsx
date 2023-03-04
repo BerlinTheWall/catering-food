@@ -1,7 +1,7 @@
 import { Footer, Navbar, Welcome } from 'components';
 import React from 'react';
 
-const ChangeLog: React.FC = () => {
+const MainPage: React.FC = () => {
   return (
     <div>
       <Navbar />
@@ -11,4 +11,4 @@ const ChangeLog: React.FC = () => {
   );
 };
 
-export default ChangeLog;
+export default MainPage;

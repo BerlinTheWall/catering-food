@@ -11,8 +11,7 @@ const root = createRoot(container);
 root.render(
   <ThemeProvider theme={theme}>
     <React.StrictMode>
-      <App />,
+      <App />
     </React.StrictMode>
-    ,
   </ThemeProvider>,
 );
