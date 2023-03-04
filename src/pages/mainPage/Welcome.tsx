@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import img from '../assets/images/welcome-image.png';
-import Button from './Button';
+import img from 'assets/images/welcome-image.png';
+import Button from '../../components/Button';
 // import Button from './Button';
 
 const Welcome: React.FC = () => {
@@ -20,8 +20,8 @@ const Welcome: React.FC = () => {
           onClick={(): void => {
             throw new Error('Function not implemented.');
           }}
+          type={'primary'}
         >
-          {/* type={'primary'} */}
           ورود
         </Button>
       </div>
