@@ -1,7 +1,29 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/naming-convention */
 // /* eslint-disable @typescript-eslint/no-unused-vars */
-// import React from 'react';
+import React from 'react';
+// import { Button as MaterialButton } from '@mui/material';
+// import { ScreenClasses } from '../types/ScreenClasses';
+// import useScreenClasses from '../utils/hooks/useScreenClasses';
+
+// const ButtonType = {
+//   primary: 'text-red',
+//   secondary: 'bg-black',
+//   basic: 'bg-invisible',
+//   delete: 'bg-red',
+// };
+
+// const ButtonSize: ScreenClasses = {
+//   xs: 'pt-1 pb-2 px-4 text-xs',
+//   sm: 'pt-1.5 pb-3 px-4 text-sm',
+//   lg: 'pt-1 pb-2 px-4 text-md',
+// };
+
+// interface Props {
+//   children?: React.ReactNode;
+//   className?: string;
+//   type: keyof typeof ButtonType;
+//   onClick: () => void;
+// }
 
 // const MyButton: React.FC<Props> = ({ children, type, onClick, className }) => {
 //   const typeClassname = ButtonType[type];
@@ -34,34 +56,11 @@
 // );
 // export default MyButton;
 
-import * as React from 'react';
+// import * as React from 'react';
 import ButtonUnstyled, {
   buttonUnstyledClasses,
 } from '@mui/base/ButtonUnstyled';
 import { styled } from '@mui/system';
-// import { Button as MaterialButton } from '@mui/material';
-import { ScreenClasses } from '../types/ScreenClasses';
-// import useScreenClasses from '../utils/hooks/useScreenClasses';
-
-// const ButtonType = {
-//   primary: 'text-red',
-//   secondary: 'bg-black',
-//   basic: 'bg-invisible',
-//   delete: 'bg-red',
-// };
-
-const ButtonSize: ScreenClasses = {
-  xs: 'pt-1 pb-2 px-4 text-xs',
-  sm: 'pt-1.5 pb-3 px-4 text-sm',
-  lg: 'pt-1 pb-2 px-4 text-md',
-};
-
-interface Props {
-  children?: React.ReactNode;
-  // className?: string;
-  // type: keyof typeof ButtonType;
-  onClick: () => void;
-}
 
 const blue = {
   500: '#007FFF',
@@ -74,7 +73,7 @@ const CustomButton = styled(ButtonUnstyled)`
   font-weight: bold;
   font-size: 0.875rem;
   background-color: ${blue[500]};
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 12px;
   color: white;
   transition: all 150ms ease;
@@ -94,10 +93,15 @@ const CustomButton = styled(ButtonUnstyled)`
       0 0 0 5px rgba(0, 127, 255, 0.5);
     outline: none;
   }
+
+  &.${buttonUnstyledClasses.disabled} {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 `;
 
-const Button: React.FC<Props> = ({ children, onClick }) => (
-  <CustomButton>{children}</CustomButton>
+const DisabledButton: React.FC = () => (
+  <CustomButton disabled>Disabled</CustomButton>
 );
 
-export default Button;
+export default DisabledButton;

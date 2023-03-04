@@ -2,6 +2,7 @@
 import React from 'react';
 import img from '../assets/images/welcome-image.png';
 import Button from './Button';
+// import Button from './Button';
 
 const Welcome: React.FC = () => {
   return (
@@ -16,12 +17,11 @@ const Welcome: React.FC = () => {
       <div className="xs:w-full lg:w-1/2 xs:py-6 flex flex-col items-center justify-center gap-4">
         <h3 className="text-white text-2xl">به کترینگ فود خوش آمدید!</h3>
         <Button
-          className="mt-4"
-          type={'primary'}
-          onClick={function (): void {
+          onClick={(): void => {
             throw new Error('Function not implemented.');
           }}
         >
+          {/* type={'primary'} */}
           ورود
         </Button>
       </div>
