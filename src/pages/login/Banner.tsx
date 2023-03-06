@@ -4,7 +4,7 @@ import img from 'assets/images/food-banner.jpg';
 const Banner: React.FC = () => {
   return (
     <div
-      className="w-full h-40 md:mt-5 relative"
+      className="w-full h-40 relative"
       style={{
         backgroundImage: `url(${img})`,
         backgroundSize: 'cover',

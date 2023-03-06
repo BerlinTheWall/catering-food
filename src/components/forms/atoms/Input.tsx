@@ -51,7 +51,7 @@ const Input: FC<InputProps> = forwardRef<HTMLInputElement, InputProps>(
         aria-label={label}
         placeholder={placeholder}
         className={classNames([
-          'w-full h-10 py-3 px-3 text-lg bg-space text-black border rounded-3xl placeholder-gray-500 border-gray-300 hover:border-blue-400 focus:outline-none focus:border-blue-400 focus:ring-blue-400 focus:ring-4 focus:ring-opacity-30',
+          'w-full h-10 py-3 px-3 text-lg bg-space text-black border rounded-xl placeholder-gray-500 border-gray-300 hover:border-blue-400 focus:outline-none focus:border-blue-400 focus:ring-blue-400 focus:ring-4 focus:ring-opacity-30',
           sizeMap[size],
           className,
         ])}

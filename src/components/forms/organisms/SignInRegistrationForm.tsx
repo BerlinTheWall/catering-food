@@ -30,7 +30,9 @@ const RegistrationForm: FC = () => {
   return (
     <form onSubmit={onSubmit} className="">
       <div className="flex flex-col gap-2">
-        <label htmlFor="email-input">Email address</label>
+        <label htmlFor="email-input" className="text-right text-sm">
+          نام کاربری
+        </label>
         <FormInput<RegistrationFormFields>
           id="email-input"
           type="email"
@@ -39,14 +41,16 @@ const RegistrationForm: FC = () => {
           className="mb-2"
           register={register}
           rules={{
-            required: 'You must enter your email address.',
+            required: 'نام کاربری را وارد نمایید.',
             pattern: emailPattern,
           }}
           errors={errors}
         />
       </div>
       <div className="flex flex-col gap-2">
-        <label htmlFor="password-input">Password</label>
+        <label htmlFor="password-input" className="text-right text-sm">
+          کلمه عبور
+        </label>
         <FormInput<RegistrationFormFields>
           id="password-input"
           type="password"
@@ -55,20 +59,20 @@ const RegistrationForm: FC = () => {
           className="mb-2"
           register={register}
           rules={{
-            required: 'You must enter your password.',
+            required: 'کلمه عبور را وارد نمایید.',
           }}
           errors={errors}
         />
       </div>
       <div className="mt-3">
         <Button
-          className="w-full"
+          className="w-full text-white text-sm"
           type={'delete'}
           onClick={function (): void {
             throw new Error('Function not implemented.');
           }}
         >
-          Sign In
+          ورود
         </Button>
       </div>
     </form>

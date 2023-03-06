@@ -2,6 +2,7 @@
 import React from 'react';
 import img from 'assets/images/welcome-image.png';
 import Button from '../../components/Button';
+import { Link } from 'react-router-dom';
 // import Button from './Button';
 
 const Welcome: React.FC = () => {
@@ -16,14 +17,24 @@ const Welcome: React.FC = () => {
       </div>
       <div className="xs:w-full lg:w-1/2 xs:py-6 flex flex-col items-center justify-center gap-4">
         <h3 className="text-white text-2xl">به کترینگ فود خوش آمدید!</h3>
-        <Button
+        {/* <Button
           onClick={(): void => {
             throw new Error('Function not implemented.');
           }}
           type={'primary'}
         >
           ورود
-        </Button>
+        </Button> */}
+        <Link to="/login">
+          <Button
+            onClick={(): void => {
+              throw new Error('Function not implemented.');
+            }}
+            type={'primary'}
+          >
+            ورود
+          </Button>{' '}
+        </Link>
       </div>
     </div>
   );

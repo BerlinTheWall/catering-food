@@ -12,7 +12,7 @@ const FormErrorMessage: FC<FormErrorMessageProps> = ({
 }) => (
   <p
     className={classNames(
-      'font-serif text-sm text-left block text-red ml-2',
+      'font-serif text-sm block text-red ml-2 text-right',
       className,
     )}
   >
