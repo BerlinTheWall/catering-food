@@ -3,9 +3,11 @@ import React from 'react';
 
 const MainPage: React.FC = () => {
   return (
-    <div>
-      <Navbar />
-      <Welcome />
+    <div className="min-h-screen flex flex-col justify-between">
+      <div>
+        <Navbar />
+        <Welcome />
+      </div>
       <Footer />
     </div>
   );
