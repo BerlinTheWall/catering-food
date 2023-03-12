@@ -5,6 +5,7 @@ import './App.css';
 import MainPage from 'pages/mainPage/MainPage';
 import Login from 'pages/login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import HomePage from 'pages/homePage/HomePage';
 
 const App: React.FC = () => {
   return (
@@ -12,8 +13,9 @@ const App: React.FC = () => {
       <BrowserRouter>
         {/* <div className=""> */}
         <Routes>
-          <Route path="/" element={<MainPage />}></Route>
+          {/* <Route path="/" element={<MainPage />}></Route> */}
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/" element={<HomePage />}></Route>
         </Routes>
         {/* </div> */}
       </BrowserRouter>

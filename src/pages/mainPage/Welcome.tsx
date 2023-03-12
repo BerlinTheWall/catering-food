@@ -26,14 +26,7 @@ const Welcome: React.FC = () => {
           ورود
         </Button> */}
         <Link to="/login">
-          <Button
-            onClick={(): void => {
-              throw new Error('Function not implemented.');
-            }}
-            type={'primary'}
-          >
-            ورود
-          </Button>{' '}
+          <Button type={'primary'}>ورود</Button>{' '}
         </Link>
       </div>
     </div>
