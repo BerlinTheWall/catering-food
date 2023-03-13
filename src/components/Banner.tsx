@@ -1,7 +1,11 @@
 import React from 'react';
 import img from 'assets/images/food-banner.jpg';
 
-const Banner: React.FC = () => {
+interface Props {
+  title: string;
+}
+
+const Banner: React.FC<Props> = ({ title }) => {
   return (
     <div
       className="w-full h-40 relative"
@@ -13,7 +17,7 @@ const Banner: React.FC = () => {
       }}
     >
       <div className="w-full h-full bg-black bg-opacity-50 text-white text-2xl font-bold">
-        <h2 className="absolute top-20 right-16">ورود به سامانه</h2>
+        <h2 className="absolute top-20 right-16">{title}</h2>
       </div>
     </div>
   );

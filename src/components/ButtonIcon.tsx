@@ -16,8 +16,8 @@ const Image = {
 
 const ButtonSize: ScreenClasses = {
   xs: 'pt-1 pb-2 px-4 text-xs',
-  sm: 'pt-1.5 pb-3 px-4 text-sm',
-  lg: 'pt-1 pb-2 px-4 text-md',
+  sm: 'pt-1.5 pb-3 px-4 text-xs',
+  lg: 'pt-1 pb-2 px-4 text-xs',
 };
 
 interface Props {
@@ -40,12 +40,12 @@ const ButtonIcon: React.FC<Props> = ({
   const buttonClasses = useScreenClasses(ButtonSize);
   return (
     <button
-      className={`flex flex-col items-center justify-center rounded-lg border border-red ${typeClassname} ${buttonClasses} ${
+      className={`flex flex-col items-center justify-center rounded-md border border-red ${typeClassname} ${buttonClasses} ${
         className ?? ''
       }`}
       onClick={onClick}
     >
-      <img className="w-10 mb-3" src={imageSrc} alt="" />
+      <img className="w-8 mb-3" src={imageSrc} alt="" />
       {children}
     </button>
   );

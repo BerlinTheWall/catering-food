@@ -26,6 +26,7 @@ module.exports = {
         'invisible': '#transparent',
         'low-opacity': 'rgba(8, 0, 0, 0.6)',
       },
+      width: { 92: '22rem'},
       height: { 110: '40rem' },
       height: { 100: '25rem' },
       border: { 1: 'border-top-1'},
