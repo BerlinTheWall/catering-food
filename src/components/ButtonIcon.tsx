@@ -1,8 +1,10 @@
 import React from 'react';
 import { ScreenClasses } from 'types/ScreenClasses';
 import { useScreenClasses } from 'utils/hooks';
-import wallet from 'assets/images/favicon.png';
-
+import wallet from 'assets/icons/wallet.svg';
+import ticket from 'assets/icons/envelope.svg';
+import cart from 'assets/icons/cart.svg';
+import leftArrow from 'assets/icons/arrow-left.svg';
 const ButtonType = {
   primary: 'text-red hover:bg-red hover:text-white',
   secondary: 'bg-black',
@@ -12,6 +14,16 @@ const ButtonType = {
 
 const Image = {
   wallet: wallet,
+  ticket: ticket,
+  cart: cart,
+  leftArrow: leftArrow,
+};
+
+const IconDirection = {
+  left: 'flex-row-reverse',
+  top: 'flex-col',
+  bottom: 'flex-col-reverse',
+  right: 'flex-row',
 };
 
 const ButtonSize: ScreenClasses = {
@@ -25,6 +37,7 @@ interface Props {
   className?: string;
   type: keyof typeof ButtonType;
   image: keyof typeof Image;
+  direction: keyof typeof IconDirection;
   onClick?: () => void;
 }
 
@@ -32,20 +45,22 @@ const ButtonIcon: React.FC<Props> = ({
   children,
   type,
   image,
+  direction,
   onClick,
   className,
 }) => {
   const typeClassname = ButtonType[type];
   const imageSrc = Image[image];
   const buttonClasses = useScreenClasses(ButtonSize);
+  const iconDirection = IconDirection[direction];
   return (
     <button
-      className={`flex flex-col items-center justify-center rounded-md border border-red ${typeClassname} ${buttonClasses} ${
+      className={`flex ${iconDirection} gap-3 items-center justify-center rounded-md border border-red ${typeClassname} ${buttonClasses} ${
         className ?? ''
       }`}
       onClick={onClick}
     >
-      <img className="w-8 mb-3" src={imageSrc} alt="" />
+      <img className="w-5 mt-1" src={imageSrc} alt="" />
       {children}
     </button>
   );

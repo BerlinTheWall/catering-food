@@ -3,16 +3,18 @@ import { ScreenClasses } from 'types/ScreenClasses';
 import { useScreenClasses } from 'utils/hooks';
 
 const ButtonType = {
-  primary: 'text-red hover:bg-red hover:text-white',
+  primary: 'text-red hover:bg-red hover:text-white border border-red',
   secondary: 'bg-black',
-  basic: 'bg-invisible',
+  basic:
+    'bg-invisible text-red hover:bg-red hover:text-white border border-red',
   delete: 'bg-red',
+  success: 'bg-green-500 hover:bg-green-600 text-white',
 };
 
 const ButtonSize: ScreenClasses = {
   xs: 'pt-1 pb-2 px-4 text-xs',
   sm: 'pt-1.5 pb-3 px-4 text-sm',
-  lg: 'pt-1 pb-2 px-4 text-md',
+  lg: 'pt-1 pb-2 px-4 text-sm',
 };
 
 interface Props {
@@ -27,7 +29,7 @@ const Button: React.FC<Props> = ({ children, type, onClick, className }) => {
   const buttonClasses = useScreenClasses(ButtonSize);
   return (
     <button
-      className={`flex items-center justify-center rounded-lg border border-red ${typeClassname} ${buttonClasses} ${
+      className={`flex items-center justify-center rounded-lg ${typeClassname} ${buttonClasses} ${
         className ?? ''
       }`}
       onClick={onClick}
