@@ -9,6 +9,7 @@ const ButtonType = {
     'bg-invisible text-red hover:bg-red hover:text-white border border-red',
   delete: 'bg-red',
   success: 'bg-green-500 hover:bg-green-600 text-white',
+  grey: 'bg-invisible text-black hover:bg-gray-500 hover:text-white border border-gray-500',
 };
 
 const ButtonSize: ScreenClasses = {

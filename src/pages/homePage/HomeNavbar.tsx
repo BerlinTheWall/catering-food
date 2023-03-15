@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -12,8 +13,10 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { NavbarDropdown } from 'components';
+import { Button as MyButton } from 'components';
 
-const pages = ['خانه', 'برنامه غذایی', 'سوالات متداول'];
+const pages = ['خانه', 'برنامه غذایی', 'سوالات متداول', 'ثبت تیکت'];
 const settings = [
   'اطلاعات کاربری',
   'سفارش‌های من',
@@ -124,15 +127,36 @@ const HomeNavbar: React.FC = () => {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'black', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
+            <Button
+              key={pages[0]}
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: 'black', display: 'block' }}
+            >
+              {pages[0]}
+            </Button>
+            <Button
+              key={pages[1]}
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: 'black', display: 'block' }}
+            >
+              {pages[1]}
+            </Button>
+            <NavbarDropdown options={['سفارش همه روزها', 'سفارش انتخابی']} />
+            <Button
+              key={pages[2]}
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: 'black', display: 'block' }}
+            >
+              {pages[2]}
+            </Button>
+            <MyButton
+              key={pages[3]}
+              type="grey"
+              onClick={handleCloseNavMenu}
+              className="text-black xs:block mr-3 h-max my-auto rounded-md"
+            >
+              {pages[3]}
+            </MyButton>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
