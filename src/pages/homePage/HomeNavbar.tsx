@@ -63,69 +63,90 @@ const HomeNavbar: React.FC = () => {
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            LOGO
+            کترینگ فود
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+          <div className="flex items-center">
+            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'left',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'left',
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: 'block', md: 'none' },
+                }}
+                MenuListProps={{
+                  disablePadding: true,
+                }}
+              >
+                <MenuItem dense key={pages[0]} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{pages[0]}</Typography>
                 </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
+                <MenuItem dense key={pages[1]} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{pages[1]}</Typography>
+                </MenuItem>
+                <NavbarDropdown
+                  title="سفارش ماهانه"
+                  options={['سفارش همه روزها', 'سفارش انتخابی']}
+                  icon={false}
+                  menuClassname="right-5 w-full mr-24"
+                />
+                <MenuItem dense key={pages[2]} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{pages[2]}</Typography>
+                </MenuItem>
+                <MyButton
+                  key={pages[3]}
+                  type="grey"
+                  onClick={handleCloseNavMenu}
+                  className="text-black xs:block h-max rounded-md w-5/6 mx-auto my-1"
+                >
+                  {pages[3]}
+                </MyButton>
+              </Menu>
+            </Box>
+            {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
+            <Typography
+              variant="h5"
+              noWrap
+              component="a"
+              href=""
+              sx={{
+                mr: 2,
+                display: { xs: 'flex', md: 'none' },
+                flexGrow: 1,
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              کترینگ فود
+            </Typography>
+          </div>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <Button
               key={pages[0]}
@@ -141,7 +162,11 @@ const HomeNavbar: React.FC = () => {
             >
               {pages[1]}
             </Button>
-            <NavbarDropdown options={['سفارش همه روزها', 'سفارش انتخابی']} />
+            <NavbarDropdown
+              title="سفارش ماهانه"
+              options={['سفارش همه روزها', 'سفارش انتخابی']}
+              icon={false}
+            />
             <Button
               key={pages[2]}
               onClick={handleCloseNavMenu}
@@ -159,35 +184,15 @@ const HomeNavbar: React.FC = () => {
             </MyButton>
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+          <div className="flex justify-end w-full md:w-fit">
+            <Box sx={{ flexGrow: 0 }}>
+              <NavbarDropdown
+                title="نوید فریدی"
+                options={settings}
+                icon={true}
+              />
+            </Box>
+          </div>
         </Toolbar>
       </Container>
     </AppBar>
