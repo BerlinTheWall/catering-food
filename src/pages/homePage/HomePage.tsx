@@ -7,11 +7,12 @@ import HomeNavbar from './HomeNavbar';
 import Banner from 'components/Banner';
 import DailyFood from './DailyFood';
 import { Footer } from 'components';
+import MonthlyTable from './MonthlyTable';
 
 const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col justify-between">
-      <div>
+      {/* <div>
         <HomeNavbar />
         <Banner title="خوش آمدید" />
         <div className="mx-auto xs:w-full xs:px-5 md:px-0 md:w-92 mt-5">
@@ -43,7 +44,8 @@ const HomePage: React.FC = () => {
           </div>
         </div>
         <DailyFood />
-      </div>
+      </div> */}
+      <MonthlyTable />
       <Footer />
     </div>
   );
