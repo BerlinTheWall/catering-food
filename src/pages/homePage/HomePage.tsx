@@ -43,16 +43,6 @@ const HomePage: React.FC = () => {
           </div>
         </div>
         <DailyFood />
-        <div className="mx-auto xs:w-full xs:px-5 md:px-0 md:w-92 mt-5">
-          <ButtonIcon
-            className="w-full rounded-md"
-            image="leftArrow"
-            direction="left"
-            type="basic"
-          >
-            برنامه غذایی فردا
-          </ButtonIcon>
-        </div>
       </div>
       <Footer />
     </div>

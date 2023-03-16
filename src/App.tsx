@@ -13,9 +13,9 @@ const App: React.FC = () => {
       <BrowserRouter>
         {/* <div className=""> */}
         <Routes>
-          {/* <Route path="/" element={<MainPage />}></Route> */}
+          <Route path="/" element={<MainPage />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/Customer" element={<HomePage />}></Route>
         </Routes>
         {/* </div> */}
       </BrowserRouter>

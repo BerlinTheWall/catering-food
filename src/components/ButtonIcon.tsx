@@ -5,6 +5,7 @@ import wallet from 'assets/icons/wallet.svg';
 import ticket from 'assets/icons/envelope.svg';
 import cart from 'assets/icons/cart.svg';
 import leftArrow from 'assets/icons/arrow-left.svg';
+import rightArrow from 'assets/icons/arrow-right.svg';
 const ButtonType = {
   primary: 'text-red hover:bg-red hover:text-white',
   secondary: 'bg-black',
@@ -17,6 +18,7 @@ const Image = {
   ticket: ticket,
   cart: cart,
   leftArrow: leftArrow,
+  rightArrow: rightArrow,
 };
 
 const IconDirection = {
