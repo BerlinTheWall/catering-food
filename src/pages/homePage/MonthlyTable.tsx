@@ -11,11 +11,14 @@ import MonthlyTableCell from './MonthlyTableCell';
 
 const MonthlyTable: React.FC = () => {
   const test = [
+    { no: -1, day: 'دوشنبه', food: 'چلو کباب کوبیده', isHoliday: false },
+    { no: -1, day: 'دوشنبه', food: 'چلو کباب کوبیده', isHoliday: false },
     { no: 1, day: 'دوشنبه', food: 'چلو کباب کوبیده', isHoliday: false },
     { no: 2, day: 'سه شنبه', food: 'عدس پلو', isHoliday: false },
-    { no: 3, day: 'سه شنبه', food: 'عدس پلو', isHoliday: false },
-    { no: 4, day: 'سه شنبه', food: '----', isHoliday: false },
+    { no: 3, day: 'چهار شنبه', food: 'عدس پلو', isHoliday: false },
+    { no: 4, day: 'پنج شنبه', food: '----', isHoliday: false },
     { no: 5, day: 'جمعه', food: 'تعطیل', isHoliday: true },
+    { no: 6, day: 'سه شنبه', food: 'عدس پلو', isHoliday: true },
     { no: 6, day: 'سه شنبه', food: 'عدس پلو', isHoliday: true },
     { no: 7, day: 'سه شنبه', food: 'عدس پلو', isHoliday: false },
     { no: 8, day: 'سه شنبه', food: 'عدس پلو', isHoliday: true },
@@ -25,9 +28,13 @@ const MonthlyTable: React.FC = () => {
     { no: 6, day: 'سه شنبه', food: 'عدس پلو', isHoliday: true },
     { no: 7, day: 'سه شنبه', food: 'عدس پلو', isHoliday: false },
     { no: 8, day: 'سه شنبه', food: 'عدس پلو', isHoliday: true },
+    { no: -1, day: 'دوشنبه', food: 'چلو کباب کوبیده', isHoliday: false },
+    { no: -1, day: 'دوشنبه', food: 'چلو کباب کوبیده', isHoliday: false },
+    { no: -1, day: 'دوشنبه', food: 'چلو کباب کوبیده', isHoliday: false },
   ];
+
   return (
-    <div className="flex flex-wrap gap-2 max-w-5xl mx-auto">
+    <div className="flex justify-between flex-wrap gap-2 md:gap-x-1 lg:max-w-5xl mx-auto md:max-w-3xl">
       {test.map((f) => (
         <MonthlyTableCell
           key={f.no}
