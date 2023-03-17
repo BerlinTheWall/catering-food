@@ -34,16 +34,43 @@ const MonthlyTable: React.FC = () => {
   ];
 
   return (
-    <div className="flex justify-between flex-wrap gap-2 md:gap-x-1 lg:max-w-5xl mx-auto md:max-w-3xl">
-      {test.map((f) => (
-        <MonthlyTableCell
-          key={f.no}
-          number={f.no}
-          day={f.day}
-          food={f.food}
-          isHoliday={f.isHoliday}
-        />
-      ))}
+    <div className="lg:max-w-5xl mx-auto md:max-w-3xl border rounded-lg px-3 py-5 mt-5">
+      <h2 className="text-2xl">
+        برنامه غذایی
+        <span className="text-red"> اسفند </span>
+        ماه
+        <span className="font-bold text-red"> 1401</span>
+      </h2>
+      <div className="flex justify-between border-b pb-5 mt-3 xs:mt-6">
+        <ButtonIcon
+          className={`w-auto rounded-md`}
+          image="rightArrow"
+          direction="right"
+          type="basic"
+          disabled={true}
+        >
+          ماه قبل
+        </ButtonIcon>
+        <ButtonIcon
+          className={`w-auto rounded-md`}
+          image="leftArrow"
+          direction="left"
+          type="basic"
+        >
+          ماه بعد
+        </ButtonIcon>
+      </div>
+      <div className="flex justify-between flex-wrap gap-2 md:gap-x-1 mt-6">
+        {test.map((f) => (
+          <MonthlyTableCell
+            key={f.no}
+            number={f.no}
+            day={f.day}
+            food={f.food}
+            isHoliday={f.isHoliday}
+          />
+        ))}
+      </div>
     </div>
   );
 };

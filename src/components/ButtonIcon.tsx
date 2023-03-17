@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React, { useEffect, useState } from 'react';
 import { ScreenClasses } from 'types/ScreenClasses';
 import { useScreenClasses } from 'utils/hooks';
 import wallet from 'assets/icons/wallet.svg';
@@ -40,6 +41,7 @@ interface Props {
   type: keyof typeof ButtonType;
   image: keyof typeof Image;
   direction: keyof typeof IconDirection;
+  disabled?: boolean;
   onClick?: () => void;
 }
 
@@ -49,17 +51,28 @@ const ButtonIcon: React.FC<Props> = ({
   image,
   direction,
   onClick,
+  disabled,
   className,
 }) => {
   const typeClassname = ButtonType[type];
   const imageSrc = Image[image];
   const buttonClasses = useScreenClasses(ButtonSize);
   const iconDirection = IconDirection[direction];
+  const [isDisabled, setIsDisabled] = useState(disabled);
+  const [disabledClass, setDisabledClass] = useState('');
+
+  useEffect(() => {
+    setIsDisabled(disabled);
+    if (disabled) setDisabledClass('pointer-events-none');
+    else setDisabledClass('');
+  }, [disabled]);
+
   return (
     <button
-      className={`flex ${iconDirection} gap-3 items-center justify-center rounded-md border border-red ${typeClassname} ${buttonClasses} ${
+      className={`flex ${iconDirection} ${disabledClass} gap-3 items-center justify-center rounded-md border border-red ${typeClassname} ${buttonClasses} ${
         className ?? ''
       }`}
+      disabled={isDisabled}
       onClick={onClick}
     >
       <img className="w-5 mt-1" src={imageSrc} alt="" />
