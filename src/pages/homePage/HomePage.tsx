@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '../../components/Button';
 import ButtonIcon from 'components/ButtonIcon';
 import HomeNavbar from './HomeNavbar';
@@ -8,25 +8,38 @@ import Banner from 'components/Banner';
 import DailyFood from './DailyFood';
 import { Footer } from 'components';
 import MonthlyTable from './MonthlyTable';
+import UserInfo from './UserInfo';
 
 const HomePage: React.FC = () => {
+  const [bannerTitle, setBannerTitle] = useState('خوش آمدید');
+  const [homePageShow, setHomePageShow] = useState('block');
+  const [myOrderShow, setMyOrderShow] = useState('hidden');
+
+  const onMyOrderClick = (): void => {
+    setBannerTitle('برنامه غذایی');
+    setHomePageShow('hidden');
+    setMyOrderShow('block');
+  };
   return (
     <div className="min-h-screen flex flex-col justify-between">
-      {/* <div>
+      <div>
         <HomeNavbar />
-        <Banner title="خوش آمدید" />
-        <div className="mx-auto xs:w-full xs:px-5 md:px-0 md:w-92 mt-5">
-          <div className="flex flex-row justify-between">
+        <Banner title={bannerTitle} />
+        <div
+          className={`mx-auto xs:w-full xs:px-3 md:px-0 md:w-92 mt-5 ${homePageShow}`}
+        >
+          <div className="flex flex-row justify-between gap-2">
             <ButtonIcon
-              className="xs:w-36 md:w-28"
+              className="xs:w-32 md:w-28"
               image="cart"
               direction="top"
               type="basic"
+              onClick={onMyOrderClick}
             >
               سفارش‌های من
             </ButtonIcon>
             <ButtonIcon
-              className="xs:w-36 md:w-28"
+              className="xs:w-32 md:w-28"
               image="wallet"
               direction="top"
               type="basic"
@@ -34,7 +47,7 @@ const HomePage: React.FC = () => {
               کیف پول من
             </ButtonIcon>
             <ButtonIcon
-              className="xs:w-36 md:w-28"
+              className="xs:w-32 md:w-28"
               image="ticket"
               direction="top"
               type="basic"
@@ -42,10 +55,11 @@ const HomePage: React.FC = () => {
               تیکت‌های من
             </ButtonIcon>
           </div>
+          <DailyFood />
         </div>
-        <DailyFood />
-      </div> */}
-      <MonthlyTable />
+      </div>
+      <MonthlyTable className={`${myOrderShow}`} />
+      {/* <UserInfo /> */}
       <Footer />
     </div>
   );

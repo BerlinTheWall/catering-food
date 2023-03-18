@@ -9,7 +9,10 @@ import Banner from 'components/Banner';
 import MonthlyTableCell from './MonthlyTableCell';
 // import Button from './Button';
 
-const MonthlyTable: React.FC = () => {
+interface Props {
+  className?: string;
+}
+const MonthlyTable: React.FC<Props> = ({ className }) => {
   const test = [
     { no: -1, day: 'دوشنبه', food: 'چلو کباب کوبیده', isHoliday: false },
     { no: -1, day: 'دوشنبه', food: 'چلو کباب کوبیده', isHoliday: false },
@@ -34,7 +37,9 @@ const MonthlyTable: React.FC = () => {
   ];
 
   return (
-    <div className="lg:max-w-5xl mx-auto md:max-w-3xl border rounded-lg px-3 py-5 mt-5">
+    <div
+      className={`lg:max-w-5xl mx-auto md:max-w-3xl border rounded-lg px-3 py-5 mt-5 ${className}`}
+    >
       <h2 className="text-2xl">
         برنامه غذایی
         <span className="text-red"> اسفند </span>
