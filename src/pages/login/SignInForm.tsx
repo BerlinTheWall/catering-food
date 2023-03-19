@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Form } from 'components/form';
 import * as yup from 'yup';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 class FormValues {
   constructor(public userName?: string, public password?: string) {}
@@ -54,6 +55,7 @@ const SignInForm: React.FC = () => {
 
       axios(config)
         .then(function (response) {
+          Cookies.set('token', response.data.token, { expires: 1 });
           setLoading(false);
           window.location.href = '/Customer';
           console.log(JSON.stringify(response.data));
