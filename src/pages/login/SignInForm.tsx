@@ -61,10 +61,10 @@ const SignInForm: React.FC = () => {
           console.log(JSON.stringify(response.data));
         })
         .catch(function (error) {
+          setLoading(false);
           setApiResponse(error.response.data.message);
           console.log(error.response.status);
           console.log(error.response.data.message);
-          setLoading(false);
         });
     }
   };

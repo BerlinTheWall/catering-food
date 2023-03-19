@@ -151,17 +151,16 @@ const Form = <T extends Record<string, any>>({
               {apiResponse as string}
             </p>
           )}
-          <Button className="submit mt-4 h-9 w-full" type={'login'}>
-            <LoadingButton
-              className="w-full"
-              variant="text"
-              size="small"
-              loading={isLoading}
-              loadingPosition="center"
-            >
-              <span>{submitText ?? 'ورود'}</span>
-            </LoadingButton>
-          </Button>
+          <LoadingButton
+            color="secondary"
+            type="submit"
+            className="bg-red submit mt-4 h-9 w-full text-white hover:bg-rose-700 rounded-lg"
+            size="small"
+            loading={isLoading}
+            loadingPosition="center"
+          >
+            <span>{(!isLoading && submitText) ?? 'ورود'}</span>
+          </LoadingButton>
         </>
       )}
     </FormElement>
