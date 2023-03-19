@@ -26,7 +26,7 @@ const Welcome: React.FC = () => {
           ورود
         </Button> */}
         <Link to="/login">
-          <Button type={'primary'}>ورود</Button>{' '}
+          <Button type={'primary'}>ورود</Button>
         </Link>
       </div>
     </div>

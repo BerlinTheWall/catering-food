@@ -9,8 +9,11 @@ import DailyFood from './DailyFood';
 import { Footer } from 'components';
 import MonthlyTable from './MonthlyTable';
 import UserInfo from './UserInfo';
+import { useLocation } from 'react-router-dom';
 
 const HomePage: React.FC = () => {
+  const location = useLocation();
+  console.log(location.pathname);
   const [bannerTitle, setBannerTitle] = useState('خوش آمدید');
   const [homePageShow, setHomePageShow] = useState('block');
   const [myOrderShow, setMyOrderShow] = useState('hidden');

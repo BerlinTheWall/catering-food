@@ -1,7 +1,7 @@
 import { Banner, Footer, Navbar } from 'components';
 import React from 'react';
 
-import SignInRegistrationForm from 'components/forms/organisms/SignInRegistrationForm';
+import SignInRegistrationForm from './SignInForm';
 
 const Login: React.FC = () => {
   return (
