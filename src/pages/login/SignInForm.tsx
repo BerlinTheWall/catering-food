@@ -11,12 +11,12 @@ class FormValues {
 
 const properties = {
   userName: {
-    title: 'نام کاربری:',
+    title: 'نام کاربری',
     placeholder: '',
     error: 'نام کاربری را وارد نمایید.',
   },
   password: {
-    title: 'رمز عبور:',
+    title: 'رمز عبور',
     placeholder: '',
     error: 'کلمه عبور را وارد نمایید.',
     type: 'password',

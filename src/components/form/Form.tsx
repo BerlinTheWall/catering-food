@@ -47,6 +47,7 @@ type Properties = {
     title: string;
     placeholder?: string;
     options?: Option[];
+    error?: string | undefined;
   };
 };
 
@@ -139,7 +140,7 @@ const Form = <T extends Record<string, any>>({
                   />
                   {formState.errors[key] && (
                     <p className="text-red text-sm error flex justify-start">
-                      {formState.errors[key]?.message as string}
+                      {properties[key].error as string}
                     </p>
                   )}
                 </div>
