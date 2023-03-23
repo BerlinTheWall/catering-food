@@ -1,25 +1,105 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useLocation } from 'react-router-dom';
-import { homePage } from 'pages/page';
-const usePageLocation = (): void => {
-  //   const location = useLocation();
-  //   console.log(location.pathname);
-  //   function checkLocation(location: string) {}
-  // //
-  //   const isXs = useMediaQuery({ query: '(max-width: 680px)' });
-  //   const isSm = useMediaQuery({ query: '(min-width: 680px)' });
-  //   const isMd = useMediaQuery({ query: '(min-width: 768px)' });
-  //   const isLg = useMediaQuery({ query: '(min-width: 1024px)' });
-  //   const isXl = useMediaQuery({ query: '(min-width: 1280px)' });
-  //   const isXXl = useMediaQuery({ query: '(min-width: 1538px)' });
-  //   const { xs, sm, md, xl, lg, xxl } = classes;
-  //   if (isXXl && xxl) return xxl;
-  //   else if (isXl && xl) return xl;
-  //   else if (isLg && lg) return lg;
-  //   else if (isMd && md) return md;
-  //   else if (isSm && sm) return sm;
-  //   else if (isXs && xs) return xs;
-  //   return '';
+import {
+  homePage,
+  wallet,
+  myOrder,
+  dailyOrder,
+  faq,
+  foodCalendar,
+  monthlyOrder,
+  myTicket,
+  userProfile,
+} from 'pages/page';
+import { LocationStatus } from 'types';
+import { useState } from 'react';
+
+const usePageLocation = (): LocationStatus => {
+  const location = useLocation();
+  // const [locationsStatus, setLocationsStatus] = useState<LocationStatus>({
+  //   isHomePage: false,
+  //   isWallet: false,
+  //   isMyOrder: false,
+  //   isMyTicket: false,
+  //   isFoodCalendar: false,
+  //   isMonthlyOrder: false,
+  //   isDailyOrder: false,
+  //   isFaq: false,
+  //   isUserProfile: false,
+  // });
+
+  const locationsStatus: LocationStatus = {
+    isHomePage: false,
+    isWallet: false,
+    isMyOrder: false,
+    isMyTicket: false,
+    isFoodCalendar: false,
+    isMonthlyOrder: false,
+    isDailyOrder: false,
+    isFaq: false,
+    isUserProfile: false,
+  };
+
+  switch (location.pathname) {
+    case homePage:
+      locationsStatus.isHomePage = true;
+      break;
+    case wallet:
+      locationsStatus.isWallet = true;
+      break;
+    case myOrder:
+      locationsStatus.isMyOrder = true;
+      break;
+    case myTicket:
+      locationsStatus.isMyTicket = true;
+      break;
+    case foodCalendar:
+      locationsStatus.isFoodCalendar = true;
+      break;
+    case monthlyOrder:
+      locationsStatus.isMonthlyOrder = true;
+      break;
+    case dailyOrder:
+      locationsStatus.isDailyOrder = true;
+      break;
+    case faq:
+      locationsStatus.isFaq = true;
+      break;
+    case userProfile:
+      locationsStatus.isUserProfile = true;
+      break;
+  }
+
+  // switch (location.pathname) {
+  //   case homePage:
+  //     setLocationsStatus({ ...locationsStatus, isHomePage: true });
+  //     break;
+  //   case wallet:
+  //     setLocationsStatus({ ...locationsStatus, isWallet: true });
+  //     break;
+  //   case myOrder:
+  //     setLocationsStatus({ ...locationsStatus, isMyOrder: true });
+  //     break;
+  //   case myTicket:
+  //     setLocationsStatus({ ...locationsStatus, isMyTicket: true });
+  //     break;
+  //   case foodCalendar:
+  //     setLocationsStatus({ ...locationsStatus, isFoodCalendar: true });
+  //     break;
+  //   case monthlyOrder:
+  //     setLocationsStatus({ ...locationsStatus, isMonthlyOrder: true });
+  //     break;
+  //   case dailyOrder:
+  //     setLocationsStatus({ ...locationsStatus, isDailyOrder: true });
+  //     break;
+  //   case faq:
+  //     setLocationsStatus({ ...locationsStatus, isFaq: true });
+  //     break;
+  //   case userProfile:
+  //     setLocationsStatus({ ...locationsStatus, isUserProfile: true });
+  //     break;
+  // }
+  return locationsStatus;
 };
 
 export default usePageLocation;
