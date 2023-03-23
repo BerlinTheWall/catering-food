@@ -4,11 +4,15 @@ import { Provider } from 'react-redux';
 import { store } from './app/store';
 import App from './App';
 
+// const store: Store<ArticleState, ArticleAction> & {
+//   dispatch: DispatchType;
+// } = createStore(reducer, applyMiddleware(thunk));
+
 test('renders learn react link', () => {
   const { getByText } = render(
     <Provider store={store}>
       <App />
-    </Provider>
+    </Provider>,
   );
 
   expect(getByText(/learn/i)).toBeInTheDocument();

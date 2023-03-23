@@ -4,6 +4,11 @@ import { Form } from 'components/form';
 import * as yup from 'yup';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { useDispatch } from 'react-redux';
+import { ADD_USER } from 'redux/actionTypes';
+import { addUser } from 'redux/actionCreatores';
+import { User } from 'types/user';
+import { useNavigate } from 'react-router-dom';
 
 class FormValues {
   constructor(public userName?: string, public password?: string) {}
@@ -31,6 +36,9 @@ const SignInForm: React.FC = () => {
     })
     .required();
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const [isLoading, setLoading] = React.useState(false);
   const [apiResponse, setApiResponse] = React.useState('');
 
@@ -55,9 +63,18 @@ const SignInForm: React.FC = () => {
 
       axios(config)
         .then(function (response) {
+          navigate('/Customer');
+          const user: User = {
+            id: response.data.data.id,
+            fullName: response.data.data.fullName,
+            groupId: response.data.data.groupId,
+            orderTypes: response.data.data.orderTypes,
+            foodSizes: response.data.data.foodSizes,
+          };
+          dispatch(addUser(user));
+          console.log(user);
           Cookies.set('token', response.data.token, { expires: 1 });
           setLoading(false);
-          window.location.href = '/Customer';
           console.log(JSON.stringify(response.data));
         })
         .catch(function (error) {
