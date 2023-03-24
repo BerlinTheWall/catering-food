@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/naming-convention */
 import * as React from 'react';
@@ -7,6 +8,8 @@ import Menu, { MenuProps } from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import PersonIcon from '@mui/icons-material/Person';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { Link } from 'react-router-dom';
+import { MenuItem as MenuItemType } from 'types/menuItem';
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
@@ -53,7 +56,7 @@ const StyledMenu = styled((props: MenuProps) => (
 
 interface Props {
   title: string;
-  options: string[];
+  options: MenuItemType[];
   icon: boolean;
   menuClassname?: string;
 }
@@ -68,11 +71,14 @@ const CustomizedMenus: React.FC<Props> = ({
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>): void => {
     setAnchorEl(event.currentTarget);
+    a();
   };
   const handleClose = (): void => {
     setAnchorEl(null);
   };
-
+  function a(): void {
+    options.map((option) => console.log(option));
+  }
   return (
     <div className="my-auto">
       <Button
@@ -102,11 +108,12 @@ const CustomizedMenus: React.FC<Props> = ({
           <MenuItem
             dense
             className="max-h-8"
-            key={option}
+            key={option.title}
             onClick={handleClose}
             disableRipple
           >
-            {option}
+            {!option.path && option.title}
+            {option.path && <Link to={option.path}>{option.title}</Link>}
           </MenuItem>
         ))}
       </StyledMenu>

@@ -4,6 +4,6 @@ export const myOrder = '/Customer/Ordering';
 export const myTicket = '/Customer/Ticket';
 export const foodCalendar = '/Customer/FoodCalendar';
 export const monthlyOrder = '/Customer/Ordering/Create';
-export const dailyOrder = '/Customer/Ordering/Create?orderType=Selective';
+export const dailyOrder = '/Customer/Ordering/CreateSelective';
 export const faq = '/Customer/Home/FAQ';
 export const userProfile = '/Customer/Home/Profile';

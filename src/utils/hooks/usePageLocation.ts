@@ -16,17 +16,7 @@ import { useState } from 'react';
 
 const usePageLocation = (): LocationStatus => {
   const location = useLocation();
-  // const [locationsStatus, setLocationsStatus] = useState<LocationStatus>({
-  //   isHomePage: false,
-  //   isWallet: false,
-  //   isMyOrder: false,
-  //   isMyTicket: false,
-  //   isFoodCalendar: false,
-  //   isMonthlyOrder: false,
-  //   isDailyOrder: false,
-  //   isFaq: false,
-  //   isUserProfile: false,
-  // });
+  console.log(location.pathname);
 
   const locationsStatus: LocationStatus = {
     isHomePage: false,
@@ -70,35 +60,6 @@ const usePageLocation = (): LocationStatus => {
       break;
   }
 
-  // switch (location.pathname) {
-  //   case homePage:
-  //     setLocationsStatus({ ...locationsStatus, isHomePage: true });
-  //     break;
-  //   case wallet:
-  //     setLocationsStatus({ ...locationsStatus, isWallet: true });
-  //     break;
-  //   case myOrder:
-  //     setLocationsStatus({ ...locationsStatus, isMyOrder: true });
-  //     break;
-  //   case myTicket:
-  //     setLocationsStatus({ ...locationsStatus, isMyTicket: true });
-  //     break;
-  //   case foodCalendar:
-  //     setLocationsStatus({ ...locationsStatus, isFoodCalendar: true });
-  //     break;
-  //   case monthlyOrder:
-  //     setLocationsStatus({ ...locationsStatus, isMonthlyOrder: true });
-  //     break;
-  //   case dailyOrder:
-  //     setLocationsStatus({ ...locationsStatus, isDailyOrder: true });
-  //     break;
-  //   case faq:
-  //     setLocationsStatus({ ...locationsStatus, isFaq: true });
-  //     break;
-  //   case userProfile:
-  //     setLocationsStatus({ ...locationsStatus, isUserProfile: true });
-  //     break;
-  // }
   return locationsStatus;
 };
 

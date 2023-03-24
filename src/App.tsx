@@ -12,7 +12,6 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        {/* <div className=""> */}
         <Routes>
           <Route path="/" element={<MainPage />}></Route>
           <Route path="/login" element={<Login />}></Route>
@@ -25,7 +24,7 @@ const App: React.FC = () => {
             element={<HomePage pageTitle="اطلاعات کاربری" />}
           ></Route>
           <Route
-            path="/Customer/Ordering/Create"
+            path="/Customer/FoodCalendar"
             element={<HomePage pageTitle="سفارش ماهانه" />}
           ></Route>
         </Routes>

@@ -72,7 +72,7 @@ const SignInForm: React.FC = () => {
             foodSizes: response.data.data.foodSizes,
           };
           dispatch(addUser(user));
-          console.log(user);
+          // console.log(user);
           Cookies.set('token', response.data.token, { expires: 1 });
           setLoading(false);
           console.log(JSON.stringify(response.data));

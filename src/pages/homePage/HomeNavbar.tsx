@@ -15,16 +15,23 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { NavbarDropdown } from 'components';
 import { Button as MyButton } from 'components';
+import { Link } from 'react-router-dom';
 
 const pages = ['خانه', 'برنامه غذایی', 'سوالات متداول', 'ثبت تیکت'];
 const settings = [
-  'اطلاعات کاربری',
-  'سفارش‌های من',
-  'کیف پول من',
-  'تیکت‌های من',
-  'بازنشانی کلمه عبور',
-  'خروج',
+  { title: 'اطلاعات کاربری', path: '/Customer/Home/Profile' },
+  { title: 'سفارش‌های من', path: '/Customer/Ordering' },
+  { title: 'کیف پول من', path: '/Customer/Wallet' },
+  { title: 'تیکت‌های من', path: '/Customer/Ticket' },
+  { title: 'بازنشانی کلمه عبور', onclick: '' },
+  { title: 'خروج', path: '/Login', onclick: '' },
 ];
+
+const orderSettings = [
+  { title: 'سفارش همه روزها', path: '/Customer/Ordering/Create' },
+  { title: 'سفارش انتخابی', path: '/Customer/Ordering/CreateSelective' },
+];
+
 const HomeNavbar: React.FC = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null,
@@ -104,19 +111,19 @@ const HomeNavbar: React.FC = () => {
                 }}
               >
                 <MenuItem dense key={pages[0]} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{pages[0]}</Typography>
+                  <Link to="/Customer">{pages[0]}</Link>
                 </MenuItem>
                 <MenuItem dense key={pages[1]} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{pages[1]}</Typography>
+                  <Link to="/Customer/FoodCalendar">{pages[1]}</Link>
                 </MenuItem>
                 <NavbarDropdown
                   title="سفارش ماهانه"
-                  options={['سفارش همه روزها', 'سفارش انتخابی']}
+                  options={orderSettings}
                   icon={false}
                   menuClassname="right-5 w-full mr-24"
                 />
                 <MenuItem dense key={pages[2]} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{pages[2]}</Typography>
+                  <Link to="/Customer/Home/FAQ">{pages[2]}</Link>
                 </MenuItem>
                 <MyButton
                   key={pages[3]}
@@ -148,32 +155,38 @@ const HomeNavbar: React.FC = () => {
             </Typography>
           </div>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            <Button
-              key={pages[0]}
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: 'black', display: 'block' }}
-            >
-              {pages[0]}
-            </Button>
-            <Button
-              key={pages[1]}
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: 'black', display: 'block' }}
-            >
-              {pages[1]}
-            </Button>
+            <Link to="/Customer">
+              <Button
+                key={pages[0]}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'black', display: 'block' }}
+              >
+                {pages[0]}
+              </Button>
+            </Link>
+            <Link to="/Customer/FoodCalendar">
+              <Button
+                key={pages[1]}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'black', display: 'block' }}
+              >
+                {pages[1]}
+              </Button>
+            </Link>
             <NavbarDropdown
               title="سفارش ماهانه"
-              options={['سفارش همه روزها', 'سفارش انتخابی']}
+              options={orderSettings}
               icon={false}
             />
-            <Button
-              key={pages[2]}
-              onClick={handleCloseNavMenu}
-              sx={{ my: 2, color: 'black', display: 'block' }}
-            >
-              {pages[2]}
-            </Button>
+            <Link to="/Customer/Home/FAQ">
+              <Button
+                key={pages[2]}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'black', display: 'block' }}
+              >
+                {pages[2]}
+              </Button>
+            </Link>
             <MyButton
               key={pages[3]}
               type="grey"
