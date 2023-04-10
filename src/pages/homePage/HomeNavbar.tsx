@@ -16,6 +16,8 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { NavbarDropdown } from 'components';
 import { Button as MyButton } from 'components';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RootState, store } from 'app/store';
 
 const pages = ['خانه', 'برنامه غذایی', 'سوالات متداول', 'ثبت تیکت'];
 const settings = [
@@ -54,6 +56,8 @@ const HomeNavbar: React.FC = () => {
   const handleCloseUserMenu = (): void => {
     setAnchorElUser(null);
   };
+
+  const user = useSelector((store: RootState) => store.session.user);
 
   return (
     <AppBar position="static">
@@ -200,7 +204,7 @@ const HomeNavbar: React.FC = () => {
           <div className="flex justify-end w-full md:w-fit">
             <Box sx={{ flexGrow: 0 }}>
               <NavbarDropdown
-                title="نوید فریدی"
+                title={user?.fullName ? user.fullName : '-'}
                 options={settings}
                 icon={true}
               />

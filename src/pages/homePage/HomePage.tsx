@@ -20,7 +20,7 @@ interface Props {
 
 const HomePage: React.FC<Props> = ({ pageTitle }) => {
   const user = useSelector((store: RootState) => store.session.user);
-  // console.log(user);
+  console.log(user);
   // const location = useLocation();
   // console.log(location.pathname);
   // console.log(usePageLocation());

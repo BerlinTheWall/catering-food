@@ -10,7 +10,7 @@ import Banner from 'components/Banner';
 
 const UserInfo: React.FC = () => {
   return (
-    <div className="w-80 mx-auto border px-5 py-5">
+    <div className="w-80 mx-auto border px-5 py-5 mt-5">
       <div className="border-b pb-5">
         <h2 className="text-lg">
           اطلاعات کاربری <span className="text-red">نوید فریدی</span>
