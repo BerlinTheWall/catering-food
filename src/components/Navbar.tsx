@@ -13,8 +13,12 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { Link } from 'react-router-dom';
 
-const pages = ['ورود', 'ورود مدیران'];
+const pages = [
+  { title: 'ورود', path: '/Login' },
+  { title: 'ورود مدیران', path: '/' },
+];
 
 const Navbar: React.FC = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -68,13 +72,14 @@ const Navbar: React.FC = () => {
             }}
           >
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'black', display: 'block' }}
-              >
-                {page}
-              </Button>
+              <Link to={page.path} key={page.title}>
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'black', display: 'block' }}
+                >
+                  {page.title}
+                </Button>
+              </Link>
             ))}
           </Box>
 
@@ -90,7 +95,6 @@ const Navbar: React.FC = () => {
               flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
@@ -127,8 +131,15 @@ const Navbar: React.FC = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.title} onClick={handleCloseNavMenu}>
+                  <Link to={page.path} key={page.title}>
+                    <Button
+                      onClick={handleCloseNavMenu}
+                      sx={{ color: 'black', display: 'block' }}
+                    >
+                      {page.title}
+                    </Button>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
