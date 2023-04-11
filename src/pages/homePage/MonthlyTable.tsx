@@ -1,40 +1,76 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '../../components/Button';
 import ButtonIcon from 'components/ButtonIcon';
 import HomeNavbar from './HomeNavbar';
 import Banner from 'components/Banner';
 import MonthlyTableCell from './MonthlyTableCell';
-// import Button from './Button';
+import Cookies from 'js-cookie';
+import axios from 'axios';
+import { FoodCalendar } from 'types/foodCalendar';
 
 interface Props {
   className?: string;
 }
+
 const MonthlyTable: React.FC<Props> = ({ className }) => {
-  const test = [
-    { no: -1, day: 'دوشنبه', food: 'چلو کباب کوبیده', isHoliday: false },
-    { no: -1, day: 'دوشنبه', food: 'چلو کباب کوبیده', isHoliday: false },
-    { no: 1, day: 'دوشنبه', food: 'چلو کباب کوبیده', isHoliday: false },
-    { no: 2, day: 'سه شنبه', food: 'عدس پلو', isHoliday: false },
-    { no: 3, day: 'چهار شنبه', food: 'عدس پلو', isHoliday: false },
-    { no: 4, day: 'پنج شنبه', food: '----', isHoliday: false },
-    { no: 5, day: 'جمعه', food: 'تعطیل', isHoliday: true },
-    { no: 6, day: 'سه شنبه', food: 'عدس پلو', isHoliday: true },
-    { no: 6, day: 'سه شنبه', food: 'عدس پلو', isHoliday: true },
-    { no: 7, day: 'سه شنبه', food: 'عدس پلو', isHoliday: false },
-    { no: 8, day: 'سه شنبه', food: 'عدس پلو', isHoliday: true },
-    { no: 7, day: 'سه شنبه', food: 'عدس پلو', isHoliday: false },
-    { no: 8, day: 'سه شنبه', food: 'عدس پلو', isHoliday: false },
-    { no: 5, day: 'جمعه', food: 'تعطیل', isHoliday: true },
-    { no: 6, day: 'سه شنبه', food: 'عدس پلو', isHoliday: true },
-    { no: 7, day: 'سه شنبه', food: 'عدس پلو', isHoliday: false },
-    { no: 8, day: 'سه شنبه', food: 'عدس پلو', isHoliday: true },
-    { no: -1, day: 'دوشنبه', food: 'چلو کباب کوبیده', isHoliday: false },
-    { no: -1, day: 'دوشنبه', food: 'چلو کباب کوبیده', isHoliday: false },
-    { no: -1, day: 'دوشنبه', food: 'چلو کباب کوبیده', isHoliday: false },
-  ];
+  const [foodCalendar, setFoodCalendar] = useState<FoodCalendar[]>([]);
+
+  useEffect(() => {
+    const token = Cookies.get('token');
+    const config = {
+      method: 'get',
+      maxBodyLength: Infinity,
+      url: 'http://food.myapi.ir/api/utility/getFoodCalendar?month=1&year=1402',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    axios
+      .request(config)
+      .then((response) => {
+        const fc = response.data.map((data: FoodCalendar): FoodCalendar => {
+          return {
+            foodTitle: data.foodTitle,
+            isHoliday: data.isHoliday,
+            persianDay: data.persianDay,
+            persianDayOfWeek: data.persianDayOfWeek,
+            dayOfWeek: data.dayOfWeek,
+          };
+        });
+
+        // check if the foodCalendar array is empty before updating it
+        if (fc.length > 0) {
+          setFoodCalendar(fc);
+
+          // check if the first day of the month is not a weekday (Saturday or Sunday)
+          if (fc[0].dayOfWeek < 5) {
+            const j = fc[0].dayOfWeek + 1;
+            const emptyDays: FoodCalendar[] = [];
+            for (let i = 0; i < j; i++) {
+              const emptyDay: FoodCalendar = {
+                foodTitle: '',
+                isHoliday: true,
+                persianDay: -1,
+                persianDayOfWeek: '',
+                dayOfWeek: -1,
+              };
+              emptyDay.key = `empty-${i}`;
+              emptyDays.push(emptyDay);
+            }
+
+            setFoodCalendar([...emptyDays, ...fc]);
+          }
+        }
+        console.log(foodCalendar);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div
@@ -66,12 +102,12 @@ const MonthlyTable: React.FC<Props> = ({ className }) => {
         </ButtonIcon>
       </div>
       <div className="flex justify-between flex-wrap gap-2 md:gap-x-1 mt-6">
-        {test.map((f) => (
+        {foodCalendar.map((f) => (
           <MonthlyTableCell
-            key={f.no}
-            number={f.no}
-            day={f.day}
-            food={f.food}
+            key={f.key ?? f.persianDay}
+            number={f.persianDay}
+            day={f.persianDayOfWeek}
+            food={f.foodTitle}
             isHoliday={f.isHoliday}
           />
         ))}

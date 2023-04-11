@@ -8,7 +8,7 @@ import * as actionTypes from './actionTypes';
 const initialState: UserState = {
   user: {
     id: '0',
-    fullName: 'name',
+    fullName: '',
     groupId: 0,
     foodSizes: ['0'],
     orderTypes: ['0'],

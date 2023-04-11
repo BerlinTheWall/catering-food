@@ -23,10 +23,9 @@ const MonthlyTableCell: React.FC<Props> = ({
 }) => {
   return (
     <>
-      {number === -1 && (
+      {number < 0 && (
         <div className="lg:w-40 md:w-28 sm:w-24 xs:hidden sm:block rounded-md py-4 px-3"></div>
       )}
-
       {day !== 'جمعه' && number !== -1 && (
         <div
           className={`lg:w-40 md:w-28 sm:w-24 xs:w-full xs:flex xs:items-center sm:block ${
@@ -38,7 +37,12 @@ const MonthlyTableCell: React.FC<Props> = ({
             <p className="font-bold">{number}</p>
           </div>
           <div className="sm:mt-3 xs:w-1/2 sm:w-full">
-            <p className="font-semibold">{food}</p>
+            <p className="font-semibold md:text-sm">
+              {}
+              {food !== null ? food : ''}
+              {food === null && isHoliday ? 'تعطیل' : ''}
+              {food === null && !isHoliday ? '----' : ''}
+            </p>
           </div>
         </div>
       )}
@@ -50,7 +54,10 @@ const MonthlyTableCell: React.FC<Props> = ({
               <p className="font-bold">{number}</p>
             </div>
             <div className="xs:w-1/2 sm:w-28 sm:mr-7">
-              <p className="font-semibold">{food}</p>
+              <p className="font-semibold md:text-sm">
+                {' '}
+                {food !== null ? food : 'تعطیل'}
+              </p>
             </div>
           </div>
         </div>
