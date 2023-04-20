@@ -9,7 +9,7 @@ import { ADD_USER } from 'redux/actionTypes';
 import { addUser } from 'redux/actionCreatores';
 import { User } from 'types/user';
 import { useNavigate } from 'react-router-dom';
-
+const url = process.env.URL;
 class FormValues {
   constructor(public userName?: string, public password?: string) {}
 }
@@ -53,7 +53,7 @@ const SignInForm: React.FC = () => {
       const config = {
         method: 'post',
         maxBodyLength: Infinity,
-        url: 'http://food.myapi.ir/api/account/login',
+        url: `${url}/api/account/login`,
         headers: {
           // eslint-disable-next-line @typescript-eslint/naming-convention
           'Content-Type': 'application/json',
