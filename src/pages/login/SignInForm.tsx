@@ -9,7 +9,7 @@ import { ADD_USER } from 'redux/actionTypes';
 import { addUser } from 'redux/actionCreatores';
 import { User } from 'types/user';
 import { useNavigate } from 'react-router-dom';
-const url = process.env.URL;
+const url = process.env.REACT_APP_API_URL;
 class FormValues {
   constructor(public userName?: string, public password?: string) {}
 }
