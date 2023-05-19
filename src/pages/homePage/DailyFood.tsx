@@ -65,7 +65,7 @@ const DailyFood: React.FC = () => {
   }, []);
 
   return (
-    <div className="mx-auto xs:w-full xs:px-3 md:px-0 md:w-92 mt-5">
+    <div className="mx-auto px-2 xs:w-full xs:px-3 md:px-0 md:w-92 mt-5">
       <div className="flex flex-row justify-between gap-2">
         <Link to="/Customer/Ordering">
           <ButtonIcon

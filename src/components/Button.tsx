@@ -14,9 +14,9 @@ const ButtonType = {
 };
 
 const ButtonSize: ScreenClasses = {
-  xs: 'pt-1 pb-2 px-4 text-xs',
-  sm: 'pt-1.5 pb-3 px-4 text-sm',
-  lg: 'pt-1 pb-2 px-4 text-sm',
+  xs: 'pt-2 pb-2 px-4 text-sm',
+  sm: 'pt-2 pb-2 px-4 text-sm',
+  lg: 'pt-2 pb-2 px-4 text-sm',
 };
 
 interface Props {

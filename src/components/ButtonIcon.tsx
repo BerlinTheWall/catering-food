@@ -30,9 +30,9 @@ const IconDirection = {
 };
 
 const ButtonSize: ScreenClasses = {
-  xs: 'pt-1 pb-2 px-4 text-xs',
-  sm: 'pt-1.5 pb-3 px-4 text-xs',
-  lg: 'pt-1 pb-2 px-4 text-xs',
+  xs: 'pt-2 pb-2 px-4 text-sm',
+  sm: 'pt-2 pb-2 px-4 text-xs',
+  lg: 'pt-2 pb-2 px-4 text-xs',
 };
 
 interface Props {
@@ -75,7 +75,7 @@ const ButtonIcon: React.FC<Props> = ({
       disabled={isDisabled}
       onClick={onClick}
     >
-      <img className="w-5 mt-1" src={imageSrc} alt="" />
+      <img className="w-5" src={imageSrc} alt="" />
       {children}
     </button>
   );
