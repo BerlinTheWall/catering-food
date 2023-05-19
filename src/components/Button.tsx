@@ -47,9 +47,9 @@ const Button: React.FC<Props> = ({
 
   return (
     <button
-      className={`flex items-center justify-center rounded-lg ${disabledClass} ${typeClassname} ${buttonClasses} ${
+      className={`flex items-center justify-center rounded-lg ${
         className ?? ''
-      }`}
+      } ${disabledClass} ${typeClassname} ${buttonClasses} `}
       disabled={isDisabled}
       onClick={onClick}
     >

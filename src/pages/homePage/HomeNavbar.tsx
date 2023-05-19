@@ -72,7 +72,7 @@ const HomeNavbar: React.FC = () => {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
+              fontFamily: 'iranYekan',
               fontWeight: 700,
               color: 'inherit',
               textDecoration: 'none',
@@ -133,7 +133,7 @@ const HomeNavbar: React.FC = () => {
                   key={pages[3]}
                   type="grey"
                   onClick={handleCloseNavMenu}
-                  className="text-black xs:block h-max rounded-md w-5/6 mx-auto my-1"
+                  className="text-black xs:block h-max rounded-md w-5/6 mx-auto my-1 pt-1 pb-1 mb-2"
                 >
                   {pages[3]}
                 </MyButton>
@@ -195,7 +195,7 @@ const HomeNavbar: React.FC = () => {
               key={pages[3]}
               type="grey"
               onClick={handleCloseNavMenu}
-              className="text-black xs:block mr-3 h-max my-auto rounded-md"
+              className="text-black xs:block mr-3 h-max my-auto rounded-md pt-1.5 pb-1.5"
             >
               {pages[3]}
             </MyButton>

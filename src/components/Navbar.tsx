@@ -56,7 +56,7 @@ const Navbar: React.FC = () => {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
+              fontFamily: 'iranYekan',
               fontWeight: 700,
               color: 'inherit',
               textDecoration: 'none',
@@ -75,7 +75,12 @@ const Navbar: React.FC = () => {
               <Link to={page.path} key={page.title}>
                 <Button
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'black', display: 'block' }}
+                  sx={{
+                    my: 2,
+                    color: 'black',
+                    display: 'block',
+                    fontFamily: 'iranYekan',
+                  }}
                 >
                   {page.title}
                 </Button>
@@ -93,7 +98,7 @@ const Navbar: React.FC = () => {
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'monospace',
+              fontFamily: 'iranYekan',
               fontWeight: 700,
               color: 'inherit',
               textDecoration: 'none',
@@ -135,7 +140,11 @@ const Navbar: React.FC = () => {
                   <Link to={page.path} key={page.title}>
                     <Button
                       onClick={handleCloseNavMenu}
-                      sx={{ color: 'black', display: 'block' }}
+                      sx={{
+                        color: 'black',
+                        display: 'block',
+                        fontFamily: 'iranYekan',
+                      }}
                     >
                       {page.title}
                     </Button>

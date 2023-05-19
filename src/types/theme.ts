@@ -9,6 +9,9 @@ let theme = createTheme({
       main: '#aaa',
     },
   },
+  typography: {
+    fontFamily: `"iranYekan", sans-serif`,
+  },
 });
 
 theme = createTheme(theme, {
@@ -18,5 +21,9 @@ theme = createTheme(theme, {
     },
   },
 });
+
+// theme = createTheme(theme, {
+
+// });
 
 export default createTheme(theme);
