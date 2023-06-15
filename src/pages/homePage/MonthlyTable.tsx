@@ -9,22 +9,51 @@ import MonthlyTableCell from './MonthlyTableCell';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import { FoodCalendar } from 'types/foodCalendar';
+import persianDate from 'persian-date';
+const url = process.env.REACT_APP_API_URL;
+const auth_key = process.env.REACT_APP_AUTHORIZATION_KEY;
 
 interface Props {
   className?: string;
 }
 
 const MonthlyTable: React.FC<Props> = ({ className }) => {
+  const now = new persianDate();
   const [foodCalendar, setFoodCalendar] = useState<FoodCalendar[]>([]);
+  const [year, setYear] = useState<number>(now.State.persianAstro.year);
+  const [month, setMonth] = useState<number>(now.State.persianAstro.month + 1);
+
+  const handleNextMonthClick = (): void => {
+    if (month === 12) {
+      setMonth(1);
+      setYear(year + 1);
+    } else setMonth(month + 1);
+  };
+
+  // useEffect(() => {
+  //   const now = new persianDate();
+  //   // console.log(now);
+  //   setYear(now.State.persianAstro.year);
+  //   setMonth(now.State.persianAstro.month + 1);
+  //   setMonthString(
+  //     new persianDate([
+  //       now.State.persianAstro.year,
+  //       now.State.persianAstro.month + 1,
+  //       1,
+  //     ])
+  //       .toLocale('fa')
+  //       .format('MMMM'),
+  //   );
+  // }, []);
 
   useEffect(() => {
     const token = Cookies.get('token');
     const config = {
       method: 'get',
       maxBodyLength: Infinity,
-      url: 'http://food.myapi.ir/api/utility/getFoodCalendar?month=1&year=1402',
+      url: `${url}/api/utility/getFoodCalendar?month=${month}&year=${year}`,
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `${auth_key} ${token}`,
       },
     };
 
@@ -64,13 +93,13 @@ const MonthlyTable: React.FC<Props> = ({ className }) => {
             setFoodCalendar([...emptyDays, ...fc]);
           }
         }
-        console.log(foodCalendar);
+        // console.log(foodCalendar);
       })
       .catch((error) => {
         console.log(error);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [month, year]);
 
   return (
     <div
@@ -78,9 +107,18 @@ const MonthlyTable: React.FC<Props> = ({ className }) => {
     >
       <h2 className="text-2xl">
         برنامه غذایی
-        <span className="text-red"> اسفند </span>
+        <span className="text-red">
+          {' '}
+          {new persianDate([
+            now.State.persianAstro.year,
+            now.State.persianAstro.month + 1,
+            1,
+          ])
+            .toLocale('fa')
+            .format('MMMM')}{' '}
+        </span>
         ماه
-        <span className="font-bold text-red"> 1401</span>
+        <span className="font-bold text-red"> {year}</span>
       </h2>
       <div className="flex justify-between border-b pb-5 mt-3 xs:mt-6">
         <ButtonIcon
@@ -97,6 +135,7 @@ const MonthlyTable: React.FC<Props> = ({ className }) => {
           image="leftArrow"
           direction="left"
           type="basic"
+          onClick={handleNextMonthClick}
         >
           ماه بعد
         </ButtonIcon>

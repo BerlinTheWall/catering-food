@@ -57,7 +57,7 @@ const HomeNavbar: React.FC = () => {
     setAnchorElUser(null);
   };
 
-  const user = useSelector((store: RootState) => store.session.user);
+  const user = useSelector((store: RootState) => store.user);
 
   return (
     <AppBar position="static">

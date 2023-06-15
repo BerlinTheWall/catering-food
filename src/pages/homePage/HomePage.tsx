@@ -19,8 +19,8 @@ interface Props {
 }
 
 const HomePage: React.FC<Props> = ({ pageTitle }) => {
-  const user = useSelector((store: RootState) => store.session.user);
-  console.log(user);
+  const user = useSelector((store: RootState) => store.user);
+  // console.log(user);
   // const location = useLocation();
   // console.log(location.pathname);
   // console.log(usePageLocation());
@@ -28,7 +28,7 @@ const HomePage: React.FC<Props> = ({ pageTitle }) => {
   const [bannerTitle, setBannerTitle] = useState(pageTitle);
   // const [homePageShow, setHomePageShow] = useState('block');
   // const [myOrderShow, setMyOrderShow] = useState('hidden');
-  console.log(pageLocation);
+  // console.log(pageLocation);
 
   // const onMyOrderClick = (): void => {
   //   setBannerTitle('برنامه غذایی');
@@ -37,6 +37,7 @@ const HomePage: React.FC<Props> = ({ pageTitle }) => {
   // };
 
   const getPageBody = useCallback(() => {
+    // console.log(pageLocation);
     if (pageLocation.isHomePage) return <DailyFood />;
     else if (pageLocation.isUserProfile) return <UserInfo />;
     else if (pageLocation.isFoodCalendar) return <MonthlyTable />;

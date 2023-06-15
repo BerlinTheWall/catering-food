@@ -22,8 +22,4 @@ theme = createTheme(theme, {
   },
 });
 
-// theme = createTheme(theme, {
-
-// });
-
 export default createTheme(theme);
